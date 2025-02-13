@@ -3,33 +3,38 @@
 import React  from 'react';
 import axios from 'axios';
 import { useState , useEffect } from 'react';
-const fetchData = () => {
 
-    const response = axios.get("https://fakestoreapi.com/products/1");
-    response
-        .then((value) => {
-            console.log(value.data, "val");
-        })
-        .catch((error) => {
-            console.log(error, "error")
+// const fetchData = () => {
+
+//     const response = axios.get("https://fakestoreapi.com/products/1");
+//     response
+//         .then((value) => {
+//             console.log(value.data, "val");
+//         })
+//         .catch((error) => {
+//             console.log(error, "error")
 
 
-        });
-};
+//         });
+// };
 
 const DataFetch = () => {
     const [product,setProduct] = useState(null);
 
-    const fetchData = () => {
-
-        const response = axios.get("https://fakestoreapi.com/products/1");
-        response
-            .then((value) => {
-                setProduct(value.data);
-            })
-            .catch((error) => {
-                console.log(error, "error");
-            });
+    const fetchData = async () => {
+        try{
+            const response = axios.get("https://fakestoreapi.com/products/1");
+            console.log(response.data,"data");
+        }catch (error){
+            console.log(error,"error")
+        }
+        // response
+        //     .then((value) => {
+        //         setProduct(value.data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error, "error");
+        //     });
     };
 
     useEffect(() => {
